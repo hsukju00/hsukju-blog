@@ -3,7 +3,7 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=20, verbose_name="카테고리")
-    upper_category = models.ForeignKey("self", null=True)
+    upper_category = models.ForeignKey("self", on_delete=models.CASCADE, null=True)
 
 
 class Post(models.Model):
