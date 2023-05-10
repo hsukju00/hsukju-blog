@@ -22,7 +22,7 @@ jobs:
         port: ${{ secrets.AWS_SSH_PORT }}
         script_stop: true
         script: |
-          cd /srv/mysite
+          cd /srv/hsukju-blog
           git pull
           sudo systemctl daemon-reload
           sudo systemctl restart uwsgi nginx
