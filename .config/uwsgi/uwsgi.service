@@ -3,7 +3,7 @@ Description=uWSGI service
 After=syslog.target
 
 [Service]
-ExecStart=/srv/hsukju-blog/venv/bin/uwsgi -i /srv/hsukju-blog/.config/uwsgi/hsukju-blog.ini
+ExecStart=/srv/hsukju-blog/.venv/bin/uwsgi -i /srv/hsukju-blog/.config/uwsgi/hsukju-blog.ini
 
 Restart=always
 KillSignal=SIGQUIT
