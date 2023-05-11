@@ -5,6 +5,8 @@ services:
         container_name: blogproject
         image: hsukju00/blogproject
         build: ./blogproject
+        env_file:
+            - ".env"
         volumes:
             - uwsgi_sock:/tmp
 
@@ -17,6 +19,7 @@ services:
             - ".env"
         volumes:
             - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./blogproject/static/:/srv/blogproject/static
             - uwsgi_sock:/tmp
         depends_on:
             - django-web
