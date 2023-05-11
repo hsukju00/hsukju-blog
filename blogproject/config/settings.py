@@ -14,8 +14,6 @@ import dotenv
 import os
 from pathlib import Path
 
-DOTENV_PATH = "../.env"
-dotenv.load_dotenv(dotenv_path=DOTENV_PATH)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +28,7 @@ SECRET_KEY = "django-insecure-ujs1$s7c6v3=bbg#bm1$2%0%xi#(0bod@(rn^h=twqcs!#ced=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ["HOST"]]
+ALLOWED_HOSTS = [os.getenv("HOST")]
 
 
 # Application definition
