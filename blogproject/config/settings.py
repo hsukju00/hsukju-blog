@@ -10,11 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import dotenv
 import os
 from pathlib import Path
-from dotenv import load_dotenv
 
-load_dotenv(dotenv_path="../../.env")
+DOTENV_FILE = dotenv.find_dotenv()
+dotenv.load_dotenv(DOTENV_FILE)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +30,7 @@ SECRET_KEY = "django-insecure-ujs1$s7c6v3=bbg#bm1$2%0%xi#(0bod@(rn^h=twqcs!#ced=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', os.getenv("HOST")]
+ALLOWED_HOSTS = [os.environ["HOST"]]
 
 
 # Application definition
