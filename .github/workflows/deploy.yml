@@ -1,4 +1,5 @@
-name: Deploy using SSH
+name: Deploy to EC2 using SSH
+
 on:
   push:
     branches: [ "master" ]
@@ -22,7 +23,7 @@ jobs:
         port: ${{ secrets.AWS_SSH_PORT }}
         script_stop: true
         script: |
-          cd /srv/hsukju-blog
-          git pull
-          sudo systemctl daemon-reload
-          sudo systemctl restart uwsgi nginx
+          cd ~/hsukju-blog/
+          git fetch; git pull
+          docker-compose down --rmi 'all'
+          docker-compose up -d
