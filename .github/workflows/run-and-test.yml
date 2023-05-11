@@ -22,8 +22,7 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        cd ./blogproject/
-        pip install -r requirements.txt
+        pip install -r ./blogproject/requirements.txt
     - name: Run Tests
       run: |
-        python manage.py test
+        python ./blogproject/manage.py test
