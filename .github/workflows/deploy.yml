@@ -1,4 +1,5 @@
-name: Deploy using SSH
+name: Deploy to EC2 using SSH
+
 on:
   push:
     branches: [ "master" ]
