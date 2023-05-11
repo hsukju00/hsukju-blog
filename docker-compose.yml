@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+    django-web:
+        container_name: blogproject
+        image: hsukju-blog/blogproject
+        ports:
+            - "8000:8000"
+        build: ./blogproject
+        volumes:
+            - uwsgi_sock:/tmp
+
+    nginx:
+        container_name: nginx
+        image: nginx:latest
+        ports:
+            - "80:80"
+        build: ./nginx
+        volumes:
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - uwsgi_sock:/tmp
+        depends_on:
+            - django-web
+
+volumes:
+    uwsgi_sock:

@@ -1,6 +1,7 @@
 *.pyc
 __pycache__
-.env
+
 .venv
 .vscode
-db.sqlite3
+
+blogproject/db.sqlite3
