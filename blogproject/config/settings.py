@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-ujs1$s7c6v3=bbg#bm1$2%0%xi#(0bod@(rn^h=twqcs!#ced="
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv("HOST")]
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "bootstrap5",
+    "django_bootstrap_icons",
     "blog.apps.BlogConfig",
 ]
 
