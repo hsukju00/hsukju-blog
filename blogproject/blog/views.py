@@ -1,32 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
 
-# Create your views here.
-
-
-def index(request):
-    return render(request, "blog/main.html")
-
-
-from django.shortcuts import render
-
-# Create your views here.
+from .models import Post
 
 
 def index(request):
-    return render(request, template_name="blog/main.html")
+    posts = Post.objects.order_by('-published_at')
+    paginator = Paginator(posts, 5)
+    posts_in_page = paginator.get_page(1)
+    context = {"posts": posts_in_page}
+    return render(request, "blog/main.html", context)
 
 
-def category_list(request):
-    return render(request, template_name="blog/category.html")
-
-
-def tag_list(request):
-    return render(request, template_name="blog/tag_list.html")
-
-
-def post_list(request):
-    return render(request, template_name="blog/post.html")
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    context = {post: post}
+    return render(request, "blog/post_detail.html", context)
 
 
 def info(request):
-    return render(request, template_name="blog/info.html")
+    return render(request, "blog/info.html")
