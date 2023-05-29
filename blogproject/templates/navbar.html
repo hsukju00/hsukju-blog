@@ -10,15 +10,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'blog:info' %}">Info</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:category' %}">Categories</a>
+                {% comment %} <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog:categories' %}">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:tag' %}">Tags</a>
+                    <a class="nav-link" href="{% url 'blog:tags' %}">Tags</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:post' %}">Posts</a>
-                </li>
+                    <a class="nav-link" href="{% url 'blog:posts' %}">Posts</a>
+                </li> {% endcomment %}
             </ul>
         </div>
     </div>
