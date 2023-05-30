@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<main>
-    <h3>Recent Posts</h3>
-    <div class="list-group list-group-flush">
-    {% if posts %}
-    {% for post in posts %}
+<h3>Recent Posts</h3>
+<div class="list-group list-group-flush">
+{% if post_list.count %}
+    {% for post in post_list %}
         <a class="list-group-item" href="{% url 'blog:post' post.id %}">
             <div class="d-flex w-100 justify-content-between">
                 <span>{{ post.title }}</span>
@@ -13,10 +12,9 @@
             </div>
         </a>
     {% endfor %}
-    {% else %}
+{% else %}
     <p>There are no recent posts...</p>
-    {% endif %}
-    </div>
-</main>
+{% endif %}
+</div>
 {% endblock content %}
 
