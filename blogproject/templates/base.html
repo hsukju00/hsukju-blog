@@ -16,8 +16,10 @@
     {% include 'navbar.html' %}
     <div class="content container-xxl my-md-4">
         {% include 'sidebar.html' %}
-        {% block content %}
-        {% endblock content %}
+        <div class="d-flex flex-column">
+            {% block content %}
+            {% endblock content %}
+        </div>
     </div>
 </body>
 

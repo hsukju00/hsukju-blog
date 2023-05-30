@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Recent Posts</h3>
-<div class="list-group list-group-flush">
-{% if post_list.count %}
-    {% for post in post_list %}
-        <a class="list-group-item" href="{% url 'blog:post' post.id %}">
-            <div class="d-flex w-100 justify-content-between">
-                <span>{{ post.title }}</span>
-                <small>{{ post.published_at }}</small>
-            </div>
-        </a>
-    {% endfor %}
-{% else %}
-    <p>There are no recent posts...</p>
-{% endif %}
+<div class="container-fluid">
+    <h3>Recent Posts</h3>
+    <div class="list-group list-group-flush">
+    {% if post_list.count %}
+        {% for post in post_list %}
+            <a class="list-group-item" href="{% url 'blog:post' post.id %}">
+                <div class="d-flex w-100 justify-content-between">
+                    <span>{{ post.title }}</span>
+                    <small>{{ post.published_at }}</small>
+                </div>
+            </a>
+        {% endfor %}
+    {% else %}
+        <p>There are no recent posts...</p>
+    {% endif %}
+    </div>
 </div>
 {% endblock content %}
 
